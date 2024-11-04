@@ -521,7 +521,19 @@ align-items: center;
   #HOURLY FORECAST
 \*-----------------------------------*/
 
+.highlights .m-icon {
+  font-size: 3.2rem;
+}
 
+.highlight-list {
+  display: grid;
+  gap: 20px
+}
+
+.highlight-list .title-3 {
+  color: var(--on-surface-variant);
+  margin-block-end: 20px
+}
 
 
 
