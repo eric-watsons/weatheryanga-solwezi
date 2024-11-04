@@ -534,6 +534,10 @@ align-items: center;
   color: var(--on-surface-variant);
   margin-block-end: 20px
 }
+.highlights .card-sm{
+  background-color: var(--black-alpha-10);
+  position: relative;
+}
 
 
 
