@@ -96,16 +96,16 @@ export const aqiText = {
 
     3: {
         level: "Moderate",
-        message: "Members of sensitive groups may exp"
+        message: "Members of sensitive groups may experience health effects. The general public is not likely to be affected."
     },
 
     4: {
-        level: "Fair",
-        message: "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air polution."
+        level: "Poor",
+        message: "Everyone may begin to experience health effects; memebers of sensitive groups may experience more serious health effects."
     },
 
     5: {
-        level: "Fair",
-        message: "Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air polution."
+        level: "Very Poor",
+        message: "Health warnings of emergency conditions. The entire population is more likely to be affected."
     }
 }
