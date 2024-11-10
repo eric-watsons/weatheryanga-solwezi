@@ -8,7 +8,7 @@
 'Use strict';
 
 import { updateWeather, error404 } from "./app.js"
-const defaultLocation = "#/weather?lat=12.1669&lon=26.3840" //Solwezi
+const defaultLocation = "#/weather?lat=-12.143333&lon=26.385833" //Solwezi
 
 const currentLocation = function () {
     window.navigator.geolocation.getCurrentPosition(res => {
