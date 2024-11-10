@@ -99,5 +99,19 @@ export const updateWeather = function (lat, lon) {
 
     const currentWeatherSection = document.querySelector("[data-current-weather");
     const highlightSection = document.querySelector("[data-highlights]");
-    
+    const hourlySection = document.querySelector("[data-hourly-forecast]");
+    const forecastSection = document.querySelector("[data-5-day-forecast]");
+
+    currentWeatherSection.innerHTML = "";
+    highlightSection.innerHTML = "";
+    hourlySection.innerHTML = "";
+    forecastSection.innerHTML = "";
+
+    if (window.location.hash === "#/current-location") {
+        currentLocationBtn.setAttribute("disabled", "");
+    } else {
+        currentLocationBtn.removeAttribute("disabled");
+    }
+
+    /
 }
