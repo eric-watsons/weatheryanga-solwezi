@@ -17,7 +17,7 @@ export const weekDayNames = [
     "Saturday"
 ];
 
-export const monthName = [
+export const monthNames = [
     "Jan",
     "Feb",
     "Mar",
@@ -41,7 +41,7 @@ export const getDate = function(dateUnix, timezone) {
     const weekDayName = weekDayNames[date.getUTCDay()];
     const monthName = monthNames[date.getUTCMonth()];
 
-    return '${weekDayName} ${date.getUTCDate()}, ${monthName}';
+    return `${weekDayName} ${date.getUTCDate()}, ${monthName}`;
 }
 
 /**
@@ -75,9 +75,8 @@ export const getHours = function (timeUnix, timezone) {
 }
 
 /**
- * 
  * @param {number} mps Metter per seconds
- * @returns {number} kilometer per hour
+ * @returns {number} Kilometer per hours
  */
 export const mps_to_kmh = mps => {
     const mph = mps * 3600;

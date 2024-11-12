@@ -7,7 +7,7 @@
 
 'Use strict';
 
-import { updateWeather, error404 } from "./app.js"
+import { updateWeather, error404 } from "./app.js";
 const defaultLocation = "#/weather?lat=-12.143333&lon=26.385833" //Solwezi
 
 const currentLocation = function () {
@@ -19,11 +19,12 @@ const currentLocation = function () {
         window.location.hash = defaultLocation;
     });
 }
+
 /**
  * @param {string} query Searched query
  */
 const searchedLocation = query => updateWeather(...query.split("&"));
-//updateWeather("lat=12.1669", "lon=26.3840")
+//updateWeather("lat=-12.143333", "lon=26.385833")
 
 const routes = new Map([
     ["/current-location", currentLocation],
@@ -40,7 +41,7 @@ const checkHash = function () {
 
 window.addEventListener("hashchange", checkHash);
 
-window.addEventListener("Load", function () {
+window.addEventListener("load", function () {
     if (!window.location.hash) {
         window.location.hash = "#/current-location";
     } else {

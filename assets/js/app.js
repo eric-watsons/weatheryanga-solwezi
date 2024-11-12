@@ -29,13 +29,13 @@ const toggleSearch = () => searchView.classList.toggle("active");
 addEventOnElements(searchTogglers, "click", toggleSearch);
 
 /**
- * SEARCH INTERGRATION
+ * SEARCH INTEGRATION
  */
 const searchField = document.querySelector("[data-search-field]");
-const searchResult = document.querySelector("[data-search-result");
+const searchResult = document.querySelector("[data-search-result]");
 
 let searchTimeout = null;
-const serachTimeoutDuration = 500;
+const searchTimeoutDuration = 500;
 
 searchField.addEventListener("input", function () {
 
@@ -51,7 +51,7 @@ searchField.addEventListener("input", function () {
 
     if (searchField.value) {
         searchTimeout = setTimeout(() => {
-            fetchData(url.geo(searchField.value), function (locations){
+            fetchData(url.geo(searchField.value), function (locations) {
                 searchField.classList.remove("searching");
                 searchResult.classList.add("active");
                 searchResult.innerHTML = `
@@ -70,14 +70,19 @@ searchField.addEventListener("input", function () {
                             <p class="item-title">${name}</p>
                             <p class="label-2 item-subtitle">${state || ""} ${country} </p>
                         </div>
-                        <a href="#weather?lat=${lat}&lon=${lon}" class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
+                        <a href="#/weather?lat=${lat}&lon=${lon}" class="item-link has-state" aria-label="${name} weather" data-search-toggler></a>
                     `;
 
                     searchResult.querySelector("[data-search-list]").appendChild(searchItem);
                     items.push(searchItem.querySelector("[data-search-toggler]"));
                 }
+
+                addEventOnElements(items, "click", function () {
+                    toggleSearch();
+                    searchResult.classList.remove("active");
+                })
             });
-        }, serachTimeoutDuration);
+        }, searchTimeoutDuration);
     }
 });
 
@@ -88,11 +93,12 @@ const errorContent = document.querySelector("data-error-content");
 
 /**
  * Render all weather data in html page
+ * 
  * @param {number} lat Latitude
  * @param {number} lon Longitude
  */
 export const updateWeather = function (lat, lon) {
-    loading.style.display = "grid";
+    // loading.style.display = "grid";
     container.style.overflowY = "hidden";
     container.classList.contains("fade-in") ?? container.classList.remove("fade-in");
     errorContent.style.display = "none";
@@ -116,13 +122,13 @@ export const updateWeather = function (lat, lon) {
     /**
      * CURRENT WEATHER SECTION
      */
-    fetchData(url.currentweather(lat, lon), function (currentWeather){
+    fetchData(url.currentWeather(lat, lon), function (currentWeather){
         const {
             weather,
             dt: dateUnix,
             sys: { sunrise: sunriseUnixUTC, sunset: sunsetUnixUTC },
             main: {temp, feels_like, pressure, humidity },
-            visiblity,
+            visibility,
             timezone
         } = currentWeather
         const [{ description, icon }] = weather;
@@ -156,5 +162,26 @@ export const updateWeather = function (lat, lon) {
         })
 
         currentWeatherSection.appendChild(card);
+
+        /**
+         * TODAY'S HIGHLIGHT
+         */
+
+        fetchData(url.airPollution(lat, lon), function (airPolution){
+            const [{
+                main: { aqi },
+                components: { no2, o3, so3, so2_5 }
+            }] = airPollution.list;
+
+            const card = document.createElement("div");
+            card.classList.add("card", "card-lg");
+
+            card.innerHTML = `
+            
+            `;
+
+        });
     });
 }
+
+export const error404 = function () {}
