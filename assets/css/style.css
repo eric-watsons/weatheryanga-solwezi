@@ -306,6 +306,7 @@ box-shadow: none;
 .logo img {
   width: 150px;
 }
+
 .header .container,
 .header-actions {
   display: flex;
