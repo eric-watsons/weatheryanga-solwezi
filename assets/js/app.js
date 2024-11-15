@@ -35,7 +35,7 @@ const searchField = document.querySelector("[data-search-field]");
 const searchResult = document.querySelector("[data-search-result]");
 
 let searchTimeout = null;
-const searchTimeoutDuration = 500;
+const serachTimeoutDuration = 500;
 
 searchField.addEventListener("input", function () {
 
@@ -82,11 +82,11 @@ searchField.addEventListener("input", function () {
                     searchResult.classList.remove("active");
                 })
             });
-        }, searchTimeoutDuration);
+        }, serachTimeoutDuration);
     }
 });
 
-const container = document.querySelector("[data-container");
+const container = document.querySelector("[data-container]");
 const loading = document.querySelector("[data-loading]");
 const currentLocationBtn = document.querySelector("[data-current-location-btn]");
 const errorContent = document.querySelector("data-error-content");
@@ -101,9 +101,9 @@ export const updateWeather = function (lat, lon) {
     // loading.style.display = "grid";
     container.style.overflowY = "hidden";
     container.classList.contains("fade-in") ?? container.classList.remove("fade-in");
-    errorContent.style.display = "none";
+   // errorContent.style.display = "none";
 
-    const currentWeatherSection = document.querySelector("[data-current-weather");
+    const currentWeatherSection = document.querySelector("[data-current-weather]");
     const highlightSection = document.querySelector("[data-highlights]");
     const hourlySection = document.querySelector("[data-hourly-forecast]");
     const forecastSection = document.querySelector("[data-5-day-forecast]");
@@ -167,7 +167,7 @@ export const updateWeather = function (lat, lon) {
          * TODAY'S HIGHLIGHT
          */
 
-        fetchData(url.airPollution(lat, lon), function (airPolution){
+        fetchData(url.airPollution(lat, lon), function (airPollution){
             const [{
                 main: { aqi },
                 components: { no2, o3, so3, so2_5 }
