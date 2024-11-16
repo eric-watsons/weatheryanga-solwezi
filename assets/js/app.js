@@ -89,7 +89,7 @@ searchField.addEventListener("input", function () {
 const container = document.querySelector("[data-container]");
 const loading = document.querySelector("[data-loading]");
 const currentLocationBtn = document.querySelector("[data-current-location-btn]");
-const errorContent = document.querySelector("data-error-content");
+const errorContent = document.querySelector("[data-error-content]");
 
 /**
  * Render all weather data in html page
@@ -101,7 +101,7 @@ export const updateWeather = function (lat, lon) {
     loading.style.display = "grid";
     container.style.overflowY = "hidden";
     container.classList.remove("fade-in");
-  //  errorContent.style.display = "none";
+    errorContent.style.display = "none";
 
     const currentWeatherSection = document.querySelector("[data-current-weather]");
     const highlightSection = document.querySelector("[data-highlights]");
@@ -367,4 +367,4 @@ export const updateWeather = function (lat, lon) {
     });
 }
 
-export const error404 = function () {}
+export const error404 = () => errorContent.style.display = "flex";
