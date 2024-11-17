@@ -661,12 +661,20 @@ align-items: center;
   gap: 12px 24px;
   margin-block-start: 28px;
   display: none;
+  background-color: #201f22;
 }
 .fade-in .footer {
   display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 .footer .body-3:last-child{
-  gap: 6px;
+  gap: 16px;
+}
+ .quick-link{
+  font-family: montserrat;
+  font-weight: 700;
+  margin-block: 10px;
 }
 
 
