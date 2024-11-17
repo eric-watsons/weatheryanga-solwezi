@@ -1,5 +1,5 @@
 /**
- * @license ICU
+ * @license MIT
  * @copyright watsonkayumba 2024 All rights reserved
  * @author Watson Kayumba <watsonkayumba@gmail.com>
  */
