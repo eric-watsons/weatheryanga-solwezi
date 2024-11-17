@@ -15,15 +15,29 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet">
 
+
     <!---CSS Link-->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!--JavaScript Link-->
     <script src="./assets/js/app.js" type="module"></script>
     <script src="./assets/js/route.js" type="module"></script>
+    <script src="./assets/js/offline.js" type="module"></script>
 
 </head>
 
 <body>
+    <!----Internet Connection---->
+    <div id="offline-message">
+        
+        <img src="./assets/images/wifi-off.svg" alt="Wi-Fi Offline Icon">
+
+        <h1>You are offline!</h1>
+        <p>Please check your internet connection and try again.</p>  
+    </div>
+    <div id="snackbar">Back online! Connection restored.</div>
+
+
+
     <!--My Header starts from here-->
     <header class="header">
         <div class="container">
@@ -102,7 +116,7 @@
                         <p class="body-3">Designed and Maintained by: Watson Kayumba SIN: 2310380331</p>
 
                         <p class="body-3">
-                            Copyright ©2024. All Rights Reserved.
+                            Copyright ©2024, Solwezi City. All Rights Reserved.
                         </p>
                     </div>
 
